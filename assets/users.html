@@ -13,7 +13,7 @@
  <!-- vavbar section   start -->
     <nav class="white z-depth-0 top-navbar">
         <div class="nav-wrapper">
-          <a href="#!" class="blue-text hide-on-med-and-up">home</a>
+          <a href="#!" class="blue-text hide-on-med-and-up">user management</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger blue-text"><i class="material-icons">menu</i></a>
           <ul class="hide-on-med-and-down">
             <li><a href="/" class="blue-text">home</a></li>
@@ -42,13 +42,34 @@
       </ul>
  <!-- navbar section   end -->
 
- <!-- home section     start -->
-  <section class="flex-c-m flex-col sizefull p-r-20 p-l-20 p-t-100">
-    <img src="/assets/img/sln.png" alt="logo" class="w-full max-w-200 filter_shadow">
-    <a href="#" class="waves-effect waves-light btn blue darken-3 w-full max-w-250 m-t-10 mb-10 rounded_pill">programming tutorial</a>
-    <a href="#" class="waves-effect waves-light btn blue darken-3 w-full max-w-250 m-t-10 mb-10 rounded_pill">users manager</a>
+ <section id="top_actions_section" class="row m-b-0 container section-user" x-data="testController">
+    <a id="download" class="btn button-user">download</a>
+      <!-- add button -->
+      <div class="p-l-10 p-r-10 p-t-10 col s12 m3 l2">
+        <button id="add_user_button" class="waves-effect waves-light btn blue darken-2 p-l-30 p-r-30 w-full rounded_pill flex-c button-user" x-on:click="showAddModal = true; userIdToEdit = null; handleResetForm()" >
+            <i class="material-icons m-r-5">add</i>
+            Add User
+        </button>
+      </div>
+      <!-- search section -->
+      <div class="row col s12 m9 l8 m-b-5">
+        <div class="input-field col s12" 
+        x-init="$watch('searchChar', (value)=>handleSearch(value))">
+          <input id="search" type="text" class="validate" x-model="searchChar">
+          <label for="search">
+            <i class="material-icons pos-relative top-7">search</i>
+            Search
+          </label>
+        </div>
+      </div>
+
+      <div class="col l2 hide-on-med-and-down"></div>
+
   </section>
- <!-- home section     end -->
+
+
+
+
 
     <script src="/assets/materialize/js/materialize.min.js"></script>
     <script src="/assets/js/main.js"></script>    
